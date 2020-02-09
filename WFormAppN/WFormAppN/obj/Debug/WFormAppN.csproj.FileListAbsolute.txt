@@ -1,1 +1,10 @@
 D:\Projects\WFormCP\WFormAppN\WFormAppN\bin\Debug\WFormAppN.exe.config
+D:\Projects\WFormCP\WFormAppN\WFormAppN\bin\Debug\WFormAppN.exe
+D:\Projects\WFormCP\WFormAppN\WFormAppN\bin\Debug\WFormAppN.pdb
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.csprojResolveAssemblyReference.cache
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.Properties.Resources.resources
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.Student.frmUserReg.resources
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.csproj.GenerateResource.Cache
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.exe
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.pdb
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.Student.Form1.resources
