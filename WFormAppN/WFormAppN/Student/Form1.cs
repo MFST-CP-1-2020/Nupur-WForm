@@ -23,8 +23,8 @@ namespace WFormAppN.Student
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmUserReg reg = new frmUserReg(this);
-            reg.Show();
+        
+        
         }
     }
 }

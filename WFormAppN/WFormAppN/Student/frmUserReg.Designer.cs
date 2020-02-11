@@ -39,7 +39,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.add = new System.Windows.Forms.TextBox();
             this.cous = new System.Windows.Forms.TextBox();
@@ -47,18 +46,19 @@
             this.st = new System.Windows.Forms.ComboBox();
             this.ml = new System.Windows.Forms.RadioButton();
             this.fem = new System.Windows.Forms.RadioButton();
-            this.dist = new System.Windows.Forms.ComboBox();
             this.ct = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
             this.mob = new System.Windows.Forms.TextBox();
+            this.grid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(324, 383);
+            this.button1.Location = new System.Drawing.Point(290, 336);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 50);
             this.button1.TabIndex = 0;
@@ -165,16 +165,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Gender";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(320, 229);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 22);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "District";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -211,15 +201,11 @@
             // st
             // 
             this.st.FormattingEnabled = true;
-            this.st.Items.AddRange(new object[] {
-            "UttarPradesh",
-            "Uttarakhand",
-            "Assam",
-            "Bihar"});
             this.st.Location = new System.Drawing.Point(148, 232);
             this.st.Name = "st";
             this.st.Size = new System.Drawing.Size(121, 21);
             this.st.TabIndex = 18;
+            this.st.SelectedIndexChanged += new System.EventHandler(this.st_SelectedIndexChanged);
             // 
             // ml
             // 
@@ -245,40 +231,9 @@
             this.fem.Text = "Female";
             this.fem.UseVisualStyleBackColor = true;
             // 
-            // dist
-            // 
-            this.dist.FormattingEnabled = true;
-            this.dist.Items.AddRange(new object[] {
-            "Agra",
-            "Mathura",
-            "Ballia",
-            "Almora",
-            "Dehradun",
-            "Haridwar",
-            "Arwal",
-            "Aurangabad",
-            "Cachar",
-            "Dhubri"});
-            this.dist.Location = new System.Drawing.Point(407, 229);
-            this.dist.Name = "dist";
-            this.dist.Size = new System.Drawing.Size(121, 21);
-            this.dist.TabIndex = 21;
-            this.dist.SelectedIndexChanged += new System.EventHandler(this.dist_SelectedIndexChanged);
-            // 
             // ct
             // 
             this.ct.FormattingEnabled = true;
-            this.ct.Items.AddRange(new object[] {
-            "Lucknow",
-            "Kanpur",
-            "Agra",
-            "Dehradun",
-            "Nainital",
-            "Hridwar",
-            "Patna",
-            "Gaya",
-            "Jorhat",
-            "Guwahati"});
             this.ct.Location = new System.Drawing.Point(636, 228);
             this.ct.Name = "ct";
             this.ct.Size = new System.Drawing.Size(121, 21);
@@ -318,17 +273,26 @@
             this.mob.Size = new System.Drawing.Size(100, 20);
             this.mob.TabIndex = 26;
             // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Location = new System.Drawing.Point(514, 357);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(374, 184);
+            this.grid.TabIndex = 27;
+            this.grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellContentClick);
+            // 
             // frmUserReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 455);
+            this.ClientSize = new System.Drawing.Size(917, 561);
+            this.Controls.Add(this.grid);
             this.Controls.Add(this.mob);
             this.Controls.Add(this.email);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ct);
-            this.Controls.Add(this.dist);
             this.Controls.Add(this.fem);
             this.Controls.Add(this.ml);
             this.Controls.Add(this.st);
@@ -336,7 +300,6 @@
             this.Controls.Add(this.cous);
             this.Controls.Add(this.add);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -351,6 +314,7 @@
             this.Name = "frmUserReg";
             this.Text = "frmUserReg";
             this.Load += new System.EventHandler(this.frmUserReg_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +333,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox add;
         private System.Windows.Forms.TextBox cous;
@@ -377,11 +340,11 @@
         private System.Windows.Forms.ComboBox st;
         private System.Windows.Forms.RadioButton ml;
         private System.Windows.Forms.RadioButton fem;
-        private System.Windows.Forms.ComboBox dist;
         private System.Windows.Forms.ComboBox ct;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.TextBox mob;
+        private System.Windows.Forms.DataGridView grid;
     }
 }
