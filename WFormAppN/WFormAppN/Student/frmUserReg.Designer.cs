@@ -59,7 +59,7 @@
             // Submit
             // 
             this.Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Submit.Location = new System.Drawing.Point(78, 368);
+            this.Submit.Location = new System.Drawing.Point(368, 298);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(121, 50);
             this.Submit.TabIndex = 0;
@@ -88,7 +88,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(567, 122);
+            this.label4.Location = new System.Drawing.Point(626, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 22);
             this.label4.TabIndex = 8;
@@ -109,7 +109,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(567, 228);
+            this.label6.Location = new System.Drawing.Point(320, 232);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 22);
             this.label6.TabIndex = 10;
@@ -153,7 +153,7 @@
             // 
             // fathernm
             // 
-            this.fathernm.Location = new System.Drawing.Point(693, 122);
+            this.fathernm.Location = new System.Drawing.Point(764, 125);
             this.fathernm.Name = "fathernm";
             this.fathernm.Size = new System.Drawing.Size(100, 20);
             this.fathernm.TabIndex = 17;
@@ -166,6 +166,7 @@
             this.st.Size = new System.Drawing.Size(121, 21);
             this.st.TabIndex = 18;
             this.st.SelectedIndexChanged += new System.EventHandler(this.st_SelectedIndexChanged);
+            this.st.DropDownClosed += new System.EventHandler(this.st_DropDownClosed);
             // 
             // ml
             // 
@@ -194,7 +195,7 @@
             // ct
             // 
             this.ct.FormattingEnabled = true;
-            this.ct.Location = new System.Drawing.Point(636, 228);
+            this.ct.Location = new System.Drawing.Point(407, 232);
             this.ct.Name = "ct";
             this.ct.Size = new System.Drawing.Size(121, 21);
             this.ct.TabIndex = 22;
@@ -203,7 +204,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(320, 286);
+            this.label11.Location = new System.Drawing.Point(626, 229);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 22);
             this.label11.TabIndex = 23;
@@ -213,7 +214,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(567, 282);
+            this.label12.Location = new System.Drawing.Point(626, 171);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 22);
             this.label12.TabIndex = 24;
@@ -221,14 +222,14 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(407, 285);
+            this.email.Location = new System.Drawing.Point(764, 229);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(100, 20);
             this.email.TabIndex = 25;
             // 
             // mob
             // 
-            this.mob.Location = new System.Drawing.Point(683, 282);
+            this.mob.Location = new System.Drawing.Point(764, 171);
             this.mob.Name = "mob";
             this.mob.Size = new System.Drawing.Size(100, 20);
             this.mob.TabIndex = 26;
@@ -236,16 +237,16 @@
             // grid
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(514, 357);
+            this.grid.Location = new System.Drawing.Point(-1, 354);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(374, 184);
+            this.grid.Size = new System.Drawing.Size(906, 184);
             this.grid.TabIndex = 27;
             this.grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellContentClick);
             // 
             // update
             // 
             this.update.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update.Location = new System.Drawing.Point(205, 379);
+            this.update.Location = new System.Drawing.Point(564, 309);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(131, 33);
             this.update.TabIndex = 28;

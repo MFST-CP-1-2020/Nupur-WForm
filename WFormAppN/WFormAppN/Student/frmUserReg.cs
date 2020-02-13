@@ -16,6 +16,7 @@ namespace WFormAppN.Student
         DataTable city = new DataTable();
         DataTable user = new DataTable();
         int indexRow;
+       
         public frmUserReg()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace WFormAppN.Student
         {
             bState();
             st.DataSource = state;
-            bCity();
-            ct.DataSource = city;
+            
+            
 
         }
         //method to add state into the datatable
@@ -43,25 +44,40 @@ namespace WFormAppN.Student
             //display and value member of combobox(st)
             st.DisplayMember = "Name";
             st.ValueMember = "Id";
-           
-
         }
-        //method to add city into the datatable
-        void bCity()
+        void addColCity()
         {
             //add columns
             city.Columns.Add("Id", typeof(int));
             city.Columns.Add("Name", typeof(string));
+        }
+        //method to add city into the datatable
+        void bCity()
+        {
+            int  x= st.SelectedIndex;
             DataRow row = city.NewRow();
             //add data rows
-            city.Rows.Add(1,"Lucknow");
-            city.Rows.Add(1, "AGRA");
-            city.Rows.Add(2,"Almora");
-            city.Rows.Add(3,"Tezpur");
-            city.Rows.Add(4,"Patna");
+            switch (x)
+            {
+              case 0:
+                   city.Rows.Add(1, "Lucknow");
+                    city.Rows.Add(2, "AGRA");
+                    break;
+                case 1:
+                    city.Rows.Add(1, "Almora");
+                    city.Rows.Add(2, "Nainital");
+                    break;
+                case 2:
+                    city.Rows.Add(1, "Tezpur");
+                    break;
+                case 3:
+                    city.Rows.Add(1, "Patna");
+                    break;
+            } 
             //display and value member of combobox(ct)
             ct.DisplayMember = "Name";
             ct.ValueMember = "Id";
+            ct.DataSource = city;
         }
         //method to add user data(columns) into the grid
         void addColumn()
@@ -126,49 +142,79 @@ namespace WFormAppN.Student
         //method for calling bindContents,addColumn method when form is been loaded
         private void frmUserReg_Load(object sender, EventArgs e)
         {
+            
+           // frmUserReg.Size = new Size(300, 300);
             bindContents();
             addColumn();
+            addColCity();
             update.Enabled = false;
         }
         //method for submit button
         private void submitButton(object sender, EventArgs e)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
             grid.Columns.Add(btn);
+            grid.Columns.Add(btn1);
+            btn1.Text = "Del";
             btn.HeaderText = "";
             btn.Text = "EDIT";
             btn.Name = "btn";
+            btn1.Name = "btn1";
             btn.UseColumnTextForButtonValue = true;
+            btn1.UseColumnTextForButtonValue = true;
             bindUser();
         }
-       //method for the edit button in the grid table
-      private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        void delete()
         {
+            grid.Rows.RemoveAt(indexRow);
 
-            indexRow = e.RowIndex; // get the selected Row Index
+        }
+        void edit()
+        {
+           // indexRow = e.RowIndex; // get the selected Row Index
             DataGridViewRow row = grid.Rows[indexRow];
-     //value from the grid is being added back to the form to their respective textfield on clicking the edit button
-            nm.Text = row.Cells[1].Value.ToString();
-            rollno.Text = row.Cells[2].Value.ToString();
-            fathernm.Text = row.Cells[3].Value.ToString();
-            add.Text = row.Cells[4].Value.ToString();
-            String X = row.Cells[5].Value.ToString();
+            //value from the grid is being added back to the form to their respective textfield on clicking the edit button
+            nm.Text = row.Cells["Name"].Value.ToString();
+            rollno.Text = row.Cells["RollNo"].Value.ToString();
+            fathernm.Text = row.Cells["FatherName"].Value.ToString();
+            add.Text = row.Cells["Address"].Value.ToString();
+            String X = row.Cells["Gender"].Value.ToString();
             if (X.Equals(fem.Text))
                 fem.Checked = true;
             else
                 ml.Checked = true;
-            st.Text = row.Cells[6].Value.ToString();
-            ct.Text= row.Cells[7].Value.ToString();
-            cous.Text= row.Cells[8].Value.ToString();
-            email.Text= row.Cells[9].Value.ToString();
-            mob.Text= row.Cells[10].Value.ToString();
+            st.Text = row.Cells["State"].Value.ToString();
+            ct.Text = row.Cells["City"].Value.ToString();
+            city.Clear();
+            bCity();
+            cous.Text = row.Cells["Course"].Value.ToString();
+            email.Text = row.Cells["EmailId"].Value.ToString();
+            mob.Text = row.Cells["MobileNo"].Value.ToString();
+
+
+        }
+        //method for the edit button in the grid table
+        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            indexRow = e.RowIndex; // get the selected Row Index
+            int indexCol = e.ColumnIndex;
+            if (indexCol == 1)
+            
+                delete();
+                else
+                edit();
+
+                 
+           
             //for enabling update and submit
             update.Enabled = true;
             Submit.Enabled = false;
         }
         void match()
         {
-           
+            
 
         }
         //method to update the values of the grid 
@@ -213,7 +259,13 @@ namespace WFormAppN.Student
         }
         private void st_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void st_DropDownClosed(object sender, EventArgs e)
+        {
+            city.Clear();
+            bCity();
         }
     }
 }
