@@ -157,6 +157,7 @@
             this.fathernm.Name = "fathernm";
             this.fathernm.Size = new System.Drawing.Size(100, 20);
             this.fathernm.TabIndex = 17;
+            this.fathernm.TextChanged += new System.EventHandler(this.fathernm_TextChanged);
             // 
             // st
             // 
@@ -239,7 +240,7 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(-1, 354);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(906, 184);
+            this.grid.Size = new System.Drawing.Size(921, 184);
             this.grid.TabIndex = 27;
             this.grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellContentClick);
             // 
@@ -295,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 561);
+            this.ClientSize = new System.Drawing.Size(920, 543);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nm);

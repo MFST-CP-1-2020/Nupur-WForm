@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Student_Details>
+  <Student>
+    <First_Nsme>Nupur</First_Nsme>
+    <Last_Name>Bhatt</Last_Name>
+    <Rollno>101</Rollno>
+    <gender>female</gender>
+  </Student>
+  <Student>
+    <First_Nsme>Nimra</First_Nsme>
+    <Last_Name>Nigar</Last_Name>
+    <Rollno>102</Rollno>
+    <gender>female</gender>
+  </Student>
+  <Student>
+    <First_Nsme>Pooja </First_Nsme>
+    <Last_Name>Tiwari</Last_Name>
+    <Rollno>103</Rollno>
+    <gender>female</gender>
+  </Student>
+<Student>
+    <First_Nsme>Kritika</First_Nsme>
+    <Last_Name>Pandey</Last_Name>
+    <Rollno>104</Rollno>
+    <gender>female</gender>
+  </Student>
+  
+</Student_Details>

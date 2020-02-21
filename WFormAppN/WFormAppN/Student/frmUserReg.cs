@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace WFormAppN.Student
 {
+
+  
     public partial class frmUserReg : Form
     {
+        
+        
         DataTable state = new DataTable();
         DataTable city = new DataTable();
         DataTable user = new DataTable();
@@ -83,7 +87,7 @@ namespace WFormAppN.Student
         void addColumn()
         {
             user.Columns.Add("Name",typeof(string));
-            user.Columns.Add("Rollno",typeof(int));
+            user.Columns.Add("Rollno",typeof(long));
             user.Columns.Add("FatherName",typeof(string));
             user.Columns.Add("Address");
             user.Columns.Add("Gender");
@@ -91,7 +95,7 @@ namespace WFormAppN.Student
             user.Columns.Add("City");
             user.Columns.Add("Course",typeof(string));
             user.Columns.Add("EmailId");
-            user.Columns.Add("MobileNo",typeof(int));
+            user.Columns.Add("MobileNo",typeof(long));
         }
         String gender()
         {
@@ -102,7 +106,7 @@ namespace WFormAppN.Student
                 return fem.Text;
         }
         //method to bind userdata into the datatable (user)
-        void bindUser()
+       void bindUser()
         {
             //datarow for usertable
             /*  DataRow d = user.NewRow();
@@ -122,7 +126,7 @@ namespace WFormAppN.Student
               d[9] = mob.Text;
               user.Rows.Add(d);
               grid.DataSource = user;*/
-            user.Rows.Add(nm.Text, rollno.Text, fathernm.Text, add.Text,gender(), st.Text, ct.Text, cous.Text, email.Text, mob.Text);
+           user.Rows.Add(nm.Text, rollno.Text, fathernm.Text, add.Text,gender(), st.Text, ct.Text, cous.Text, email.Text, mob.Text);
             grid.DataSource = user; 
             clearData();
         }
@@ -130,7 +134,7 @@ namespace WFormAppN.Student
         void clearData()
         {
             nm.Text = "";
-            rollno.Text = "";
+          rollno.Text = "";
             fathernm.Text = "";
             add.Text = "";
             st.ResetText();
@@ -149,7 +153,7 @@ namespace WFormAppN.Student
             addColCity();
             update.Enabled = false;
         }
-        //method for submit button
+        //method for submit button(contains edit and del button)
         private void submitButton(object sender, EventArgs e)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -163,7 +167,7 @@ namespace WFormAppN.Student
             btn1.Name = "btn1";
             btn.UseColumnTextForButtonValue = true;
             btn1.UseColumnTextForButtonValue = true;
-            bindUser();
+           bindUser();
         }
         void delete()
         {
@@ -172,7 +176,7 @@ namespace WFormAppN.Student
         }
         void edit()
         {
-           // indexRow = e.RowIndex; // get the selected Row Index
+          //  indexRow = e.RowIndex; // get the selected Row Index
             DataGridViewRow row = grid.Rows[indexRow];
             //value from the grid is being added back to the form to their respective textfield on clicking the edit button
             nm.Text = row.Cells["Name"].Value.ToString();
@@ -185,9 +189,10 @@ namespace WFormAppN.Student
             else
                 ml.Checked = true;
             st.Text = row.Cells["State"].Value.ToString();
-            ct.Text = row.Cells["City"].Value.ToString();
+            
             city.Clear();
             bCity();
+            ct.Text = row.Cells["City"].Value.ToString();
             cous.Text = row.Cells["Course"].Value.ToString();
             email.Text = row.Cells["EmailId"].Value.ToString();
             mob.Text = row.Cells["MobileNo"].Value.ToString();
@@ -212,13 +217,9 @@ namespace WFormAppN.Student
             update.Enabled = true;
             Submit.Enabled = false;
         }
-        void match()
-        {
-            
-
-        }
+       
         //method to update the values of the grid 
-        void updateData()
+       void updateData()
         {
             //data from the textfield is being added back to grid after being changed
             user.Rows[indexRow]["Name"] = nm.Text;
@@ -239,7 +240,7 @@ namespace WFormAppN.Student
         //method for updating the content
         private void updateButton(object sender, EventArgs e)
         {
-            updateData();
+           updateData();
             clearData();
             update.Enabled = false;
             Submit.Enabled = true;
@@ -267,5 +268,24 @@ namespace WFormAppN.Student
             city.Clear();
             bCity();
         }
+
+        private void fathernm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+   /* class UserData
+    {
+        string Name;
+        int Rollno;
+        string FatherName;
+        string Address;
+        string Gender;
+        int State;
+        int City;
+        string Course;
+        string EmailId;
+        long MobileNo;
+
+    }*/
 }

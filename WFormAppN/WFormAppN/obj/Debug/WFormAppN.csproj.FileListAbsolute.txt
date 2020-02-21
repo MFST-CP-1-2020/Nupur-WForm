@@ -8,3 +8,4 @@ D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.csproj.GenerateResou
 D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.exe
 D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.pdb
 D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.Student.Form1.resources
+D:\Projects\WFormCP\WFormAppN\WFormAppN\obj\Debug\WFormAppN.Student.userInfo.resources
