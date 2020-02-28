@@ -13,41 +13,39 @@ using System.Windows.Forms;
 
 namespace Employee
 {
-    class SqlHelper
+    public class SqlHelper
     {
-        string connectionString;
-        SqlConnection cnn;
+        private string connectionString;
+        private List<SqlParameter> parameters = new List<SqlParameter>();
 
-        /// <summary>
-        /// method for establishing database connectivity
-        /// </summary>
-        
-        public void OpenConnection()
+
+       public  SqlHelper()
         {
             connectionString = @"Database=TestDB;server=NUPUR\SQLEXPRESS;user id=sa;password=mindfire@1";
-            cnn = new SqlConnection(connectionString);
-            cnn.Open();
         }
-
-        /// <summary>
-        /// method for closing the connection with the database.
-        /// </summary>
         
-        public void CloseConnection()
-        {
-            cnn.Close();
-        }
+    
+
 
         /// <summary>
         /// method used for calling stored procedure "AddEmployee"for inserting data into database
         /// </summary>
         /// <param name="command"></param>
         
-        public void ExecuteScalar(SqlCommand command)
+        public void ExecuteScalar()
         {
+            SqlConnection cnn = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+            cnn.Open();
             command.Connection = cnn;
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "AddEmployee";
+            command.Parameters.Clear();
+            //
+            if (parameters.Count > 0)
+            {
+                command.Parameters.AddRange(parameters.ToArray());
+            }
             try
             {
                 string val = (command.ExecuteScalar().ToString());//for returning the the primarykey inserted
@@ -57,8 +55,13 @@ namespace Employee
             {
                 MessageBox.Show("exception " + ex.ToString());
             }
-            command.Dispose();
-            cnn.Close();
+
+            if (cnn != null)
+            {
+                parameters.Clear();
+                cnn.Close();
+
+            }
         }
 
         /// <summary>
@@ -68,12 +71,28 @@ namespace Employee
         /// <param name="command"></param>
         /// <param name="cmdText"></param>
         
-        public void ExecuteNonQuery(SqlCommand command,string cmdText)
+        public void ExecuteNonQuery(string cmdText)
         {
+            SqlConnection cnn = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+            cnn.Open();
             command.Connection = cnn;
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = cmdText;
+            command.Parameters.Clear();
+            //
+            if (parameters.Count > 0)
+            {
+                command.Parameters.AddRange(parameters.ToArray());
+            }
             command.ExecuteNonQuery();
+
+            if (cnn != null)
+            {
+                parameters.Clear();
+                cnn.Close();
+
+            }
 
         }
           
@@ -85,16 +104,24 @@ namespace Employee
                      
         public DataTable DataAdapter(String s)
         {
+            SqlConnection cnn = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
+            cnn.Open();
             command.Connection = cnn;
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(s, cnn);
             DataTable dt = new DataTable();
+            if (cnn != null)
+            {
+                parameters.Clear();
+                cnn.Close();
+
+            }
             adapter.Fill(dt);
             return dt;
         }
 
-        /// <summary>
+        /// < summary>
         /// This function is use to create Sql Parameters for execute query.
         /// </summary>
         /// <param name="paramName">ParameterName</param>
@@ -102,15 +129,16 @@ namespace Employee
         /// <param name="paramDirection">Direction</param>
         /// <param name="obj">object </param>
         /// <param name="command">SqlCommand class object</param>
-
-        public void ParameterValues(string paramName, SqlDbType paramType, ParameterDirection paramDirection, object obj, SqlCommand command)
+       
+        public void ParameterValues(string paramName, SqlDbType paramType, ParameterDirection paramDirection, object obj)
         {
             SqlParameter val = new SqlParameter();
             val.ParameterName = paramName;
             val.SqlDbType = paramType;
             val.Direction = paramDirection;
             val.Value = obj;
-            command.Parameters.Add(val);
+            //command.Parameters.Add(val);
+            parameters.Add(val);
         }
     }
 }

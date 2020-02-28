@@ -32,9 +32,9 @@ namespace Employee
         
         public void AddEmployee()
         {
-            h.OpenConnection();
-            h.ExecuteScalar(SetParameterVal(this));
-            h.CloseConnection();
+            SetParameterVal(this);
+            h.ExecuteScalar();
+            
         }
           
         /// <summary>
@@ -44,9 +44,10 @@ namespace Employee
                      
         public DataTable GetData()
         {
-            h.OpenConnection();
+           
             DataTable dt = new DataTable();
             dt = h.DataAdapter("Display");
+            
             return dt;
            
         }
@@ -58,9 +59,9 @@ namespace Employee
         /// 
         public void DeleteEmployee(User user)
         {
-            h.OpenConnection();
-            h.ExecuteNonQuery(user.SetParameterValDel(user),"DeleteEmployee");
-            h.CloseConnection();
+            SetParameterValDel(this);
+            h.ExecuteNonQuery("DeleteEmployee");
+           
         }
 
         /// <summary>
@@ -69,9 +70,9 @@ namespace Employee
         
         public void UpdateEmployee(User user)
         {
-            h.OpenConnection();
-            h.ExecuteNonQuery(user.SetParameterVal(user),"UpdateEmployee");
-            h.CloseConnection();
+            SetParameterVal(this);
+            h.ExecuteNonQuery("UpdateEmployee");
+            
         }
        
 
@@ -84,7 +85,7 @@ namespace Employee
         public SqlCommand SetParameterValDel(User user)
         {
            SqlCommand command = new SqlCommand();
-           h.ParameterValues("@empid", SqlDbType.Int, ParameterDirection.Input, user.empid, command);
+           h.ParameterValues("@empid", SqlDbType.Int, ParameterDirection.Input, user.empid);
            return command;
         }
 
@@ -94,17 +95,17 @@ namespace Employee
         /// <param name="user"></param>
         /// <returns></returns>
         
-        public SqlCommand SetParameterVal(User user)
+        public void SetParameterVal(User user)
         {
-           SqlCommand command = new SqlCommand();
-           h.ParameterValues("@empid", SqlDbType.Int, ParameterDirection.Input, user.empid, command);
-           h.ParameterValues("@FirstName", SqlDbType.NVarChar, ParameterDirection.Input, user.firstnm, command);
-           h.ParameterValues("@LastName", SqlDbType.NVarChar, ParameterDirection.Input, user.lastnm, command);
-           h.ParameterValues("@MobileNo", SqlDbType.NVarChar, ParameterDirection.Input, user.mob, command);
-           h.ParameterValues("@Gender", SqlDbType.NVarChar, ParameterDirection.Input, user.gender, command);
-           h.ParameterValues("@State", SqlDbType.NVarChar, ParameterDirection.Input, user.state, command);
-           h.ParameterValues("@City", SqlDbType.NVarChar, ParameterDirection.Input, user.city, command);
-            return command;
+           //SqlCommand command = new SqlCommand();
+           h.ParameterValues("@empid", SqlDbType.Int, ParameterDirection.Input, user.empid);
+           h.ParameterValues("@FirstName", SqlDbType.NVarChar, ParameterDirection.Input, user.firstnm);
+           h.ParameterValues("@LastName", SqlDbType.NVarChar, ParameterDirection.Input, user.lastnm);
+           h.ParameterValues("@MobileNo", SqlDbType.NVarChar, ParameterDirection.Input, user.mob);
+           h.ParameterValues("@Gender", SqlDbType.NVarChar, ParameterDirection.Input, user.gender);
+           h.ParameterValues("@State", SqlDbType.NVarChar, ParameterDirection.Input, user.state);
+           h.ParameterValues("@City", SqlDbType.NVarChar, ParameterDirection.Input, user.city);
+           // return command;
         }
     }
 }//end of namespace
