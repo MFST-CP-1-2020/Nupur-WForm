@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="Mapper\EmpMapper.cs" />
+    <Compile Include="Mapper\StudentMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>

@@ -7,18 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO
+namespace DAL
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class Display_Result
+    public partial class Student
     {
-        public int empid { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public long mobileno { get; set; }
-        public string gender { get; set; }
-        public string state { get; set; }
-        public string city { get; set; }
+        public int StudentId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Gender { get; set; }
+        public long MobileNo { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
     }
 }

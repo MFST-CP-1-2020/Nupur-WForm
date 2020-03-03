@@ -15,14 +15,16 @@ namespace PresentationLayer
     public partial class Form2 : Form
     {
         BAL.Student user2 = new BAL.Student();
+        StdDTOcs student = new StdDTOcs();
         public Form2()
         {
             InitializeComponent();
         }
+
         /// <summary>
         ///  method to assign values from the text fields to the user class variables
         /// </summary>
-        StdDTOcs student = new StdDTOcs();
+       
         public void AddDataToStudent()
         {
             student.firstnm = txtFirstName.Text;
@@ -64,11 +66,10 @@ namespace PresentationLayer
         private void AddButton(object sender, EventArgs e)
         {
             AddDataToStudent();
-            string val=user2.AddStudent(student);
-            MessageBox.Show("VALUE INSERTED"+ " "+val);
+           user2.AddStudent(student);
             DataTable dt = new DataTable();
             dt = user2.GetData();
-            dataGridView1.DataSource = dt;
+            stdGrid.DataSource = dt;
             ClearData();
         }
 
@@ -85,7 +86,7 @@ namespace PresentationLayer
             user2.GetData();
             DataTable dt = new DataTable();
             dt = user2.GetData();
-            dataGridView1.DataSource = dt;
+            stdGrid.DataSource = dt;
             ClearData();
         }
 
@@ -101,7 +102,7 @@ namespace PresentationLayer
             user2.GetData();
             DataTable dt = new DataTable();
             dt = user2.GetData();
-            dataGridView1.DataSource = dt;
+            stdGrid.DataSource = dt;
             ClearData();
         }
 
@@ -114,7 +115,7 @@ namespace PresentationLayer
             user2.GetData();
             DataTable dt = new DataTable();
             dt = user2.GetData();
-            dataGridView1.DataSource = dt;
+            stdGrid.DataSource = dt;
             ClearData();
         }
 

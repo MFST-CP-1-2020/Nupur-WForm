@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 using DTO;
 using System.Data;
 
+/// <summary>
+/// this class is resposible for interacting with database and CRUD operations
+/// </summary>
 namespace DAL
 {
     public class EmployeeDAL
     {
-        SqlHelper h = new SqlHelper();
 
+        /// <summary>
+        /// method to add data into the database
+        /// </summary>
+        /// <param name="em"></param>
+        
         public void AddEmployee(Employee em)
         {
             //create DBContext object
-            using (var dbCtx = new TestDBEntities())
+            using (var dbCtx = new TestDBEntities1())
             {
-
                 //Add Student object into Students DBset
                 dbCtx.Employees.Add(em);
                 // call SaveChanges method to save student into database
@@ -25,9 +31,14 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// method to delete data from employee table
+        /// </summary>
+        /// <param name="em"></param>
+       
         public void DeleteEmployee(Employee em)
         {
-            using (var context = new TestDBEntities())
+            using (var context = new TestDBEntities1())
             {
                 var bay = (from d in context.Employees where d.empid == em.empid select d).Single();
                 context.Employees.Remove(bay);
@@ -35,49 +46,36 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// method to update employee 
+        /// </summary>
+        /// <param name="emp"></param>
+        
         public void UpdateEmployee(Employee emp)
         {
-
-            using (TestDBEntities context = new TestDBEntities())
+            using (TestDBEntities1 context = new TestDBEntities1())
             {
-
-                var student = (from d in context.Employees where d.empid == emp.empid select d).Single();
-                // student = emp;
-                student.firstname = emp.firstname;
-                student.lastname = emp.lastname;
-                student.mobileno = emp.mobileno;
-                student.gender = emp.gender;
-                student.state = emp.state;
-                student.city = emp.city;
-
+                var employee = (from d in context.Employees where d.empid == emp.empid select d).Single();
+                employee.firstname = emp.firstname;
+                employee.lastname = emp.lastname;
+                employee.mobileno = emp.mobileno;
+                employee.gender = emp.gender;
+                employee.state = emp.state;
+                employee.city = emp.city;
                 context.SaveChanges();
             }
-
-
         }
-        public List<Employee> GetDataVal()
-        {
-            using (TestDBEntities ctx = new TestDBEntities())
-            {
-                List<Employee> list;
-                list = ctx.Employees.ToList();
-                return list;
-
-                //DataTable dt = new DataTable();
-
-                //dt = h.DataAdapter("Display");
-
-                //return dt;
-
-            }
-
-            /* public DataTable GetDataVal()
+      
+        /// <summary>
+        /// // method to display data into the datagrid
+        /// </summary>
+        /// <returns></returns>
+        
+             public DataTable GetDataVal()
              {
-
-                var entities = new TestDBEntities();
+                 var entities = new TestDBEntities1();
                  DataTable table = AddCol();
                      var dt = (from d in entities.Employees select d);
-
                      foreach (var obj in dt)
                      {
                      DataRow dr = table.NewRow();
@@ -93,7 +91,11 @@ namespace DAL
                      return table;
                  }
 
-
+        /// <summary>
+        /// methods to add column in datagrid
+        /// </summary>
+        /// <returns></returns>
+        
              public DataTable AddCol()
              {
                  DataTable dt = new DataTable();
@@ -104,11 +106,10 @@ namespace DAL
                  dt.Columns.Add("Gender");
                  dt.Columns.Add("State");
                  dt.Columns.Add("City");
-
                  return dt;
-             }*/
+             }
         }
     }
-}
+
     
 

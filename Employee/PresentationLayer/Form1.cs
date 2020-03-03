@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
 using DTO;
+using BAL.Mapper;
 
 namespace PresentationLayer
 {
     public partial class Form1 : Form
     {
         EmployeeBAL user = new EmployeeBAL();
+        EmpDTO em = new EmpDTO();
         public Form1()
         {
             InitializeComponent();
@@ -22,22 +24,19 @@ namespace PresentationLayer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-
         }
 
         /// <summary>
         ///  method to assign values from the text fields to the user class variables
         /// </summary>
-        DTO.Employee em = new DTO.Employee();
+        
         public void AddDataToEmployee()
         {
-            em.firstname = txtFirstName.Text;
-            em.lastname = txtLastName.Text;
+            em.firstnm = txtFirstName.Text;
+            em.lastnm = txtLastName.Text;
             try
             {
-                em.mobileno = long.Parse(txtMobileNo.Text);
+                em.mob = long.Parse(txtMobileNo.Text);
             }
             catch (Exception) { }
             if (txtMale.Checked)
@@ -52,6 +51,7 @@ namespace PresentationLayer
         ///method for automatically clearing the textfield once 
         ///the respective buttons are clicked 
         /// </summary>
+       
         public void ClearData()
         {
             txtEmpId.Text = "";
@@ -62,51 +62,70 @@ namespace PresentationLayer
             txtFemale.Checked = false;
             txtState.Text = "";
             txtCity.Text = "";
+          }
 
-        }
-
+        /// <summary>
+        /// addbutton method to add values to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void AddButton(object sender, EventArgs e)
         {
             AddDataToEmployee();
             user.AddEmployeeBAL(em);
-           DataTable dt = new DataTable();
-          /*  dt = user.GetData();
-            dataGridView1.DataSource = dt;
-            ClearData();*/
-        }
-
-        private void UpdateButton(object sender, EventArgs e)
-        {
-           em.empid = int.Parse(txtEmpId.Text);
-            AddDataToEmployee();
-            user.UpdateEmployeeBAL(em);
-          /* user.GetData();
             DataTable dt = new DataTable();
             dt = user.GetData();
-            dataGridView1.DataSource = dt;
-            ClearData();*/
+            empGrid.DataSource = dt;
+            ClearData();
         }
 
+        /// <summary>
+        /// update method to update the data in the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
+        private void UpdateButton(object sender, EventArgs e)
+        {
+            em.empid = int.Parse(txtEmpId.Text);
+            AddDataToEmployee();
+            user.UpdateEmployeeBAL(em);
+            user.GetData();
+            DataTable dt = new DataTable();
+            dt = user.GetData();
+            empGrid.DataSource = dt;
+            ClearData();
+        }
+
+        /// <summary>
+        /// delete button to delete the data from database based on the employeeid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void DeleteButton(object sender, EventArgs e)
         {
             em.empid = int.Parse(txtEmpId.Text);
             user.DeleteEmployeeBAL(em);
-           /* user.GetData();
+            user.GetData();
             DataTable dt = new DataTable();
             dt = user.GetData();
-            dataGridView1.DataSource = dt;
-            ClearData();*/
+            empGrid.DataSource = dt;
+            ClearData();
         }
 
+        /// <summary>
+        /// view button to view the database in the datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void ViewButton(object sender, EventArgs e)
         {
-
-           // user.GetData();
-           // DataTable dt = new DataTable();
-          // dt user.GetData();
-               // d.ToList(); 
-            dataGridView1.DataSource=user.GetData();
-           
+            DataTable dt = new DataTable();
+            dt= user.GetData(); 
+            empGrid.DataSource=dt;
             ClearData();
         }
 

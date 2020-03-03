@@ -6,27 +6,74 @@ using System.Threading.Tasks;
 using DTO;
 using System.Data;
 
+/// <summary>
+/// this class is resposible for interacting with database and CRUD operations
+/// </summary>
+
 namespace DAL
 {
    public  class StudentDAL
     {
-        SqlHelper h = new SqlHelper();
-        public string AddStudentVal(StdDTOcs cs)
+        /// <summary>
+        /// method to add data to student table
+        /// </summary>
+        /// <param name="cs"></param>
+        
+        public void AddStudentVal(Student cs)
         {
-            SetParameterVal(cs);
-            string val = h.ExecuteScalar("AddStudent"); 
-             return val;
+            
+            using (var dbCtx = new TestDBEntities1())
+            {
+                //Add Student object into Students DBset
+                dbCtx.Students.Add(cs);
+                //id = ob.StudentId;
+                // call SaveChanges method to save student into database
+                dbCtx.SaveChanges();
+            }
         }
+
         /// <summary>
         /// getdata method for displaying the data from database
         /// </summary>
         /// <returns></returns>
-
+        
         public DataTable GetDataVal()
         {
 
+            var entities = new TestDBEntities1();
+            DataTable table = AddCol();
+            var dt = (from d in entities.Students select d);
+
+            foreach (var obj in dt)
+            {
+                DataRow dr = table.NewRow();
+                dr["StudentId"] = obj.StudentId;
+                dr["FirstName"] = obj.FirstName;
+                dr["LastName"] = obj.LastName;
+                dr["MobileNo"] = obj.MobileNo;
+                dr["Gender"] = obj.Gender;
+                dr["State"] = obj.State;
+                dr["City"] = obj.City;
+                table.Rows.Add(dr);
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// method to add columnname to datagrid
+        /// </summary>
+        /// <returns></returns>
+        
+        public DataTable AddCol()
+        {
             DataTable dt = new DataTable();
-            dt = h.DataAdapter("Display");
+            dt.Columns.Add("StudentId");
+            dt.Columns.Add("FirstName");
+            dt.Columns.Add("LastName");
+            dt.Columns.Add("MobileNo");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("State");
+            dt.Columns.Add("City");
             return dt;
         }
 
@@ -35,53 +82,28 @@ namespace DAL
         /// </summary>
         /// <param name="user"></param>
 
-        public void DeleteStudentVal(StdDTOcs user)
+        public void DeleteStudentVal(Student user)
         {
-            SetParameterValDel(user);
-            h.ExecuteNonQuery("DeleteStudent");
+            using (var context = new TestDBEntities1())
+            {
+                var bay = (from d in context.Students where d.StudentId == user.StudentId select d).Single();
+                context.Students.Remove(bay);
+                context.SaveChanges();
+            }
         }
 
         /// <summary>
         /// update method to update the records of the student datatable
         /// </summary>
 
-        public void UpdateStudentVal(StdDTOcs user)
+        public void UpdateStudentVal(Student emp)
         {
-           
-             SetParameterVal(user);
-             h.ExecuteNonQuery("UpdateStudent");
-
+            using (TestDBEntities1 context = new TestDBEntities1())
+            {
+                context.Entry(emp).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
-
-        /// <summary>
-        /// method for deleting records from student datatable using stdid
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-
-          public void SetParameterValDel(StdDTOcs user)
-          {
-
-              h.ParameterValues("@stdid", SqlDbType.Int, ParameterDirection.Input, user.studentid);
-
-          }
-
-          /// <summary>
-          /// method for assigning the value to parameternames
-          /// </summary>
-          /// <param name="user"></param>
-          /// <returns></returns>
-
-          public void SetParameterVal(StdDTOcs user)
-          {
-             h.ParameterValues("@stdid", SqlDbType.Int, ParameterDirection.Input, user.studentid);
-              h.ParameterValues("@FirstName", SqlDbType.NVarChar, ParameterDirection.Input, user.firstnm);
-              h.ParameterValues("@LastName", SqlDbType.NVarChar, ParameterDirection.Input, user.lastnm);
-              h.ParameterValues("@MobileNo", SqlDbType.NVarChar, ParameterDirection.Input, user.mob);
-              h.ParameterValues("@Gender", SqlDbType.NVarChar, ParameterDirection.Input, user.gender);
-              h.ParameterValues("@State", SqlDbType.NVarChar, ParameterDirection.Input, user.state);
-              h.ParameterValues("@City", SqlDbType.NVarChar, ParameterDirection.Input, user.city);
-          }
-          
+        
     }
 }

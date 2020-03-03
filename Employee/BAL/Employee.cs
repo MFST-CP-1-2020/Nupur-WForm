@@ -7,73 +7,57 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
+using BAL.Mapper;
+
+/// <summary>
+/// this class contain business logic code for data manipulation
+/// </summary>
+
 namespace BAL
 {
     public class EmployeeBAL
     {
-
-        /* public int empid { get; set; }
-         public string firstnm { get; set; }
-         public string lastnm { get; set; }
-         public long mob { get; set; }
-         public string state { get; set; }
-         public string city { get; set; }
-         public string gender { get; set; }*/
-
-        SqlHelper h = new SqlHelper();//object of our sql helper class
         EmployeeDAL emp = new EmployeeDAL();
+        EmpMapper map = new EmpMapper();
+       
         /// <summary>
         /// add method for performing add operations in our EmployeeBALform
         /// </summary>
 
-        public void AddEmployeeBAL(Employee em)
+        public void AddEmployeeBAL(EmpDTO em)
         {
-            emp.AddEmployee(em);
-            /*SetParameterVal(em);
-            h.ExecuteScalar("AddEmployeeBAL");*/
+            emp.AddEmployee(map.GetModel(em));
         }
       
-
         /// <summary>
         /// getdata method for displaying the data from database
         /// </summary>
         /// <returns></returns>
 
-        public List<Employee> GetData()
+        public DataTable GetData()
         {
-
-            // DataTable dt = new DataTable();
-            //dt=emp.GetDataVal();
-            //dt = h.DataAdapter("Display");
-            //return dt;
-            return emp.GetDataVal();
-           
-
+            DataTable dt = new DataTable();
+            dt=emp.GetDataVal();
+            return dt;
         }
 
         /// <summary>
         /// delete method to delete data from the EmployeeBAL datatable 
         /// </summary>
         /// <param name="user"></param>
-        /// 
-        public void DeleteEmployeeBAL(Employee user)
+        
+        public void DeleteEmployeeBAL(EmpDTO em)
         {
-            emp.DeleteEmployee(user);
-            /*SetParameterValDel(user);
-            h.ExecuteNonQuery("DeleteEmployeeBAL");*/
-
+            emp.DeleteEmployee(map.GetModel(em));
         }
 
         /// <summary>
         /// update method to update the records of the EmployeeBAL datatable
         /// </summary>
 
-        public void UpdateEmployeeBAL(Employee user)
+        public void UpdateEmployeeBAL(EmpDTO em)
         {
-            emp.UpdateEmployee(user);
-            /*SetParameterVal(user);
-            h.ExecuteNonQuery("UpdateEmployeeBAL");*/
-
+            emp.UpdateEmployee(map.GetModel(em));
         }
     }
 }

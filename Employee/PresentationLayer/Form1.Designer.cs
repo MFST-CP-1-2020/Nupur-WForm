@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.empGrid = new System.Windows.Forms.DataGridView();
             this.txtFemale = new System.Windows.Forms.RadioButton();
             this.txtMale = new System.Windows.Forms.RadioButton();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -37,29 +37,29 @@
             this.txtState = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtEmpId = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.empEmployeeId = new System.Windows.Forms.Label();
+            this.empGender = new System.Windows.Forms.Label();
+            this.empState = new System.Windows.Forms.Label();
+            this.empCity = new System.Windows.Forms.Label();
+            this.empLastName = new System.Windows.Forms.Label();
+            this.empMobileNo = new System.Windows.Forms.Label();
+            this.empFirstName = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // empGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(148, 354);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(622, 150);
-            this.dataGridView1.TabIndex = 39;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.empGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.empGrid.Location = new System.Drawing.Point(148, 354);
+            this.empGrid.Name = "empGrid";
+            this.empGrid.Size = new System.Drawing.Size(622, 150);
+            this.empGrid.TabIndex = 39;
+            this.empGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtFemale
             // 
@@ -125,68 +125,68 @@
             this.txtEmpId.Size = new System.Drawing.Size(100, 20);
             this.txtEmpId.TabIndex = 31;
             // 
-            // label7
+            // empEmployeeId
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(573, 115);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "EmpId";
+            this.empEmployeeId.AutoSize = true;
+            this.empEmployeeId.Location = new System.Drawing.Point(573, 115);
+            this.empEmployeeId.Name = "empEmployeeId";
+            this.empEmployeeId.Size = new System.Drawing.Size(37, 13);
+            this.empEmployeeId.TabIndex = 30;
+            this.empEmployeeId.Text = "EmpId";
             // 
-            // label6
+            // empGender
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(359, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Gender";
+            this.empGender.AutoSize = true;
+            this.empGender.Location = new System.Drawing.Point(359, 175);
+            this.empGender.Name = "empGender";
+            this.empGender.Size = new System.Drawing.Size(42, 13);
+            this.empGender.TabIndex = 29;
+            this.empGender.Text = "Gender";
             // 
-            // label5
+            // empState
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(161, 247);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "State";
+            this.empState.AutoSize = true;
+            this.empState.Location = new System.Drawing.Point(161, 247);
+            this.empState.Name = "empState";
+            this.empState.Size = new System.Drawing.Size(32, 13);
+            this.empState.TabIndex = 28;
+            this.empState.Text = "State";
             // 
-            // label4
+            // empCity
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(359, 247);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 13);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "City";
+            this.empCity.AutoSize = true;
+            this.empCity.Location = new System.Drawing.Point(359, 247);
+            this.empCity.Name = "empCity";
+            this.empCity.Size = new System.Drawing.Size(24, 13);
+            this.empCity.TabIndex = 27;
+            this.empCity.Text = "City";
             // 
-            // label3
+            // empLastName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(359, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "LastName";
+            this.empLastName.AutoSize = true;
+            this.empLastName.Location = new System.Drawing.Point(359, 115);
+            this.empLastName.Name = "empLastName";
+            this.empLastName.Size = new System.Drawing.Size(55, 13);
+            this.empLastName.TabIndex = 26;
+            this.empLastName.Text = "LastName";
             // 
-            // label2
+            // empMobileNo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "MobileNo";
+            this.empMobileNo.AutoSize = true;
+            this.empMobileNo.Location = new System.Drawing.Point(161, 175);
+            this.empMobileNo.Name = "empMobileNo";
+            this.empMobileNo.Size = new System.Drawing.Size(52, 13);
+            this.empMobileNo.TabIndex = 25;
+            this.empMobileNo.Text = "MobileNo";
             // 
-            // label1
+            // empFirstName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "FirstName";
+            this.empFirstName.AutoSize = true;
+            this.empFirstName.Location = new System.Drawing.Point(161, 115);
+            this.empFirstName.Name = "empFirstName";
+            this.empFirstName.Size = new System.Drawing.Size(54, 13);
+            this.empFirstName.TabIndex = 24;
+            this.empFirstName.Text = "FirstName";
             // 
             // button4
             // 
@@ -244,7 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 503);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.empGrid);
             this.Controls.Add(this.txtFemale);
             this.Controls.Add(this.txtMale);
             this.Controls.Add(this.txtLastName);
@@ -253,13 +253,13 @@
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtEmpId);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.empEmployeeId);
+            this.Controls.Add(this.empGender);
+            this.Controls.Add(this.empState);
+            this.Controls.Add(this.empCity);
+            this.Controls.Add(this.empLastName);
+            this.Controls.Add(this.empMobileNo);
+            this.Controls.Add(this.empFirstName);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -267,7 +267,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +275,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView empGrid;
         private System.Windows.Forms.RadioButton txtFemale;
         private System.Windows.Forms.RadioButton txtMale;
         private System.Windows.Forms.TextBox txtLastName;
@@ -284,13 +284,13 @@
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtEmpId;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label empEmployeeId;
+        private System.Windows.Forms.Label empGender;
+        private System.Windows.Forms.Label empState;
+        private System.Windows.Forms.Label empCity;
+        private System.Windows.Forms.Label empLastName;
+        private System.Windows.Forms.Label empMobileNo;
+        private System.Windows.Forms.Label empFirstName;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

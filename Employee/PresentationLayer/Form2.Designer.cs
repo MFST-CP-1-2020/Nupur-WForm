@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.stdGrid = new System.Windows.Forms.DataGridView();
             this.txtFemale = new System.Windows.Forms.RadioButton();
             this.txtMale = new System.Windows.Forms.RadioButton();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -37,28 +37,28 @@
             this.txtState = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtStudentId = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.StudentId = new System.Windows.Forms.Label();
+            this.stdGender = new System.Windows.Forms.Label();
+            this.stdState = new System.Windows.Forms.Label();
+            this.stdCity = new System.Windows.Forms.Label();
+            this.stdLastName = new System.Windows.Forms.Label();
+            this.stdMobileNo = new System.Windows.Forms.Label();
             this.stdFirstName = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stdGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // stdGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(84, 321);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(622, 150);
-            this.dataGridView1.TabIndex = 59;
+            this.stdGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stdGrid.Location = new System.Drawing.Point(84, 321);
+            this.stdGrid.Name = "stdGrid";
+            this.stdGrid.Size = new System.Drawing.Size(622, 150);
+            this.stdGrid.TabIndex = 59;
             // 
             // txtFemale
             // 
@@ -124,59 +124,59 @@
             this.txtStudentId.Size = new System.Drawing.Size(100, 20);
             this.txtStudentId.TabIndex = 51;
             // 
-            // label7
+            // StudentId
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(520, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "StudentId";
+            this.StudentId.AutoSize = true;
+            this.StudentId.Location = new System.Drawing.Point(520, 84);
+            this.StudentId.Name = "StudentId";
+            this.StudentId.Size = new System.Drawing.Size(53, 13);
+            this.StudentId.TabIndex = 50;
+            this.StudentId.Text = "StudentId";
             // 
-            // label6
+            // stdGender
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(306, 144);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Gender";
+            this.stdGender.AutoSize = true;
+            this.stdGender.Location = new System.Drawing.Point(306, 144);
+            this.stdGender.Name = "stdGender";
+            this.stdGender.Size = new System.Drawing.Size(42, 13);
+            this.stdGender.TabIndex = 49;
+            this.stdGender.Text = "Gender";
             // 
-            // label5
+            // stdState
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 216);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "State";
+            this.stdState.AutoSize = true;
+            this.stdState.Location = new System.Drawing.Point(108, 216);
+            this.stdState.Name = "stdState";
+            this.stdState.Size = new System.Drawing.Size(32, 13);
+            this.stdState.TabIndex = 48;
+            this.stdState.Text = "State";
             // 
-            // label4
+            // stdCity
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 216);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 13);
-            this.label4.TabIndex = 47;
-            this.label4.Text = "City";
+            this.stdCity.AutoSize = true;
+            this.stdCity.Location = new System.Drawing.Point(306, 216);
+            this.stdCity.Name = "stdCity";
+            this.stdCity.Size = new System.Drawing.Size(24, 13);
+            this.stdCity.TabIndex = 47;
+            this.stdCity.Text = "City";
             // 
-            // label3
+            // stdLastName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(306, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "LastName";
+            this.stdLastName.AutoSize = true;
+            this.stdLastName.Location = new System.Drawing.Point(306, 84);
+            this.stdLastName.Name = "stdLastName";
+            this.stdLastName.Size = new System.Drawing.Size(55, 13);
+            this.stdLastName.TabIndex = 46;
+            this.stdLastName.Text = "LastName";
             // 
-            // label2
+            // stdMobileNo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "MobileNo";
+            this.stdMobileNo.AutoSize = true;
+            this.stdMobileNo.Location = new System.Drawing.Point(108, 144);
+            this.stdMobileNo.Name = "stdMobileNo";
+            this.stdMobileNo.Size = new System.Drawing.Size(52, 13);
+            this.stdMobileNo.TabIndex = 45;
+            this.stdMobileNo.Text = "MobileNo";
             // 
             // stdFirstName
             // 
@@ -243,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 488);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.stdGrid);
             this.Controls.Add(this.txtFemale);
             this.Controls.Add(this.txtMale);
             this.Controls.Add(this.txtLastName);
@@ -252,12 +252,12 @@
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtStudentId);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.StudentId);
+            this.Controls.Add(this.stdGender);
+            this.Controls.Add(this.stdState);
+            this.Controls.Add(this.stdCity);
+            this.Controls.Add(this.stdLastName);
+            this.Controls.Add(this.stdMobileNo);
             this.Controls.Add(this.stdFirstName);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -266,7 +266,7 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stdGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +274,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView stdGrid;
         private System.Windows.Forms.RadioButton txtFemale;
         private System.Windows.Forms.RadioButton txtMale;
         private System.Windows.Forms.TextBox txtLastName;
@@ -283,12 +283,12 @@
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtStudentId;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label StudentId;
+        private System.Windows.Forms.Label stdGender;
+        private System.Windows.Forms.Label stdState;
+        private System.Windows.Forms.Label stdCity;
+        private System.Windows.Forms.Label stdLastName;
+        private System.Windows.Forms.Label stdMobileNo;
         private System.Windows.Forms.Label stdFirstName;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

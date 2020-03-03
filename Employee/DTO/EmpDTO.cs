@@ -15,7 +15,5 @@ namespace DTO
         public string state { get; set; }
         public string city { get; set; }
         public string gender { get; set; }
-
-
     }
 }
